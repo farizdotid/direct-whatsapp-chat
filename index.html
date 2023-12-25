@@ -23,6 +23,47 @@
               console.error('Service Worker registration failed:', error);
             });
         }
+
+        let deferredPrompt;
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    // Prevent the default installation prompt
+    event.preventDefault();
+
+    // Stash the event so it can be triggered later
+    deferredPrompt = event;
+
+    // Show your custom install button or link
+    showInstallButton();
+  });
+
+  function showInstallButton() {
+    // Show your custom install button or link
+    const installButton = document.getElementById('installButton');
+    installButton.style.display = 'block';
+
+    // Attach a click event to trigger the installation prompt
+    installButton.addEventListener('click', () => {
+      // Show the installation prompt
+      deferredPrompt.prompt();
+
+      // Wait for the user to respond
+      deferredPrompt.userChoice.then((choiceResult) => {
+        // Check if the user accepted the installation
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the installation');
+        } else {
+          console.log('User declined the installation');
+        }
+
+        // Clear the deferredPrompt variable
+        deferredPrompt = null;
+
+        // Hide the install button
+        installButton.style.display = 'none';
+      });
+    });
+  }
       </script>
 </head>
 <body class="container mt-5">
@@ -45,6 +86,7 @@
         </form>
     </main>
 
+    <button id="installButton" style="display: none;">Install App</button>
    
 
     <!-- Bootstrap JS and Popper.js scripts -->
