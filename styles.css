@@ -9,10 +9,6 @@ body {
     background: linear-gradient(to bottom, #DEE4EA, #F9FCFF); /* White color gradient */
 }
 
-body, html {
-    overflow: hidden;
-}
-
 main {
     flex: 1;
 }
