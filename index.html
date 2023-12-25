@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat WA Tanpa Simpan Nomor</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.error('Service Worker registration failed:', error);
+            });
+        }
+      </script>
+</head>
+<body class="container mt-5">
+
+    <main>
+        <h1 class="fancy-title mb-4">Direct WhatsApp Chat</h1>
+        <div class="line"></div>
+        <h4 class="fancy-subtitle mb-4">Chat Nomor Whatsapp Tanpa Menyimpan Nomor</h4>
+
+        <form id="whatsappForm">
+            <div class="form-group">
+                <label for="phoneNumber">Masukan Nomor Handphone:</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="08xxxxxxx" required>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-generate" onclick="generateLink()">Generate Chat</button>
+            </div>
+
+            <p class="copyright">&copy; 2023 <a href="https://balasotomatis.com/" target="_blank">balasotomatis</a> | <a href="https://farizdotid.com/" target="_blank">farizdotid</a>. All rights reserved.</p>
+        </form>
+    </main>
+
+   
+
+    <!-- Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        function generateLink() {
+            var phoneNumber = document.getElementById('phoneNumber').value;
+
+            // Validate and modify phone number
+            if (phoneNumber.trim() === '' || !(/^\d+$/.test(phoneNumber))) {
+                alert('Please enter a valid numeric phone number.');
+                return;
+            }
+
+            // Remove the first digit if it's 0
+            if (phoneNumber.charAt(0) === '0') {
+                phoneNumber = phoneNumber.substring(1);
+            }
+
+            // Generate the WhatsApp link
+            var whatsappLink = 'https://api.whatsapp.com/send/?phone=62' + encodeURIComponent(phoneNumber);
+
+            // Navigate to the generated link
+            window.location.href = whatsappLink;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* styles.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Set Poppins as the default font */
+    background: linear-gradient(to bottom, #DEE4EA, #F9FCFF); /* White color gradient */
+}
+
+body, html {
+    overflow: hidden;
+}
+
+main {
+    flex: 1;
+}
+
+.fancy-title {
+    font-size: 3rem;
+    color: #191D88; /* Dark blue color */
+    margin-bottom: 20px; /* Added margin bottom */
+    text-align: center;
+}
+
+.fancy-subtitle {
+    font-family: 'DM Sans', sans-serif; /* Add DM Sans font */
+    font-size: 1.5rem;
+    color: #6c757d; /* Gray color */
+    text-align: center;
+}
+
+#whatsappForm {
+    margin-top: 32px; /* Adjust the margin-top value as needed */
+}
+
+.line {
+    width: 10%; /* Adjusted width for better visibility */
+    border-top: 2px solid #337CCF; /* Dark blue color */
+    margin: 0 auto 10px; /* Set top margin to 0 */
+}
+
+.btn-generate {
+    background-color: #191D88; /* Dark blue color */
+    border-color: #191D88; /* Dark blue color */
+    color: #fff; /* Text color (white) */
+}
+
+.copyright {
+    margin-top: 32px; /* Adjust the margin-top value as needed */
+    color: #6c757d; /* Set the text color for better visibility */
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+.copyright a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
