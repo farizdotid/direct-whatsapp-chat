@@ -8,12 +8,12 @@
     "theme_color": "#191D88",
     "icons": [
       {
-        "src": "src/img/icon_direct_chat_wa_192.png",
+        "src": "img/icon_direct_chat_wa_192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "src/img/icon_direct_chat_wa.png",
+        "src": "img/icon_direct_chat_wa.png",
         "sizes": "512x512",
         "type": "image/png"
       }

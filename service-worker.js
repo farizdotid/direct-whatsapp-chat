@@ -3,8 +3,8 @@ const urlsToCache = [
   '/',
   '/index.html', // Add other HTML files if needed
   '/manifest.json',
-  '/src/img/icon_direct_chat_wa_192.png', // Adjust the path to your app icon,
-  '/src/img/icon_direct_chat_wa.png', // Adjust the path to your app icon,
+  '/img/icon_direct_chat_wa_192.png', // Adjust the path to your app icon,
+  '/img/icon_direct_chat_wa.png', // Adjust the path to your app icon,
   '/styles.css',
   // Add other assets like stylesheets, scripts, and images
 ];
